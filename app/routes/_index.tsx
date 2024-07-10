@@ -6,7 +6,7 @@ import { makeSearchParamsHook, RequiredHead } from '~/searchParamHelpers';
 export const meta: MetaFunction = () => {
   return [
     { title: 'Decision Tree Visualizer' },
-    { name: 'description', content: 'Welcome to Remix!' },
+    { name: 'description', content: 'Visualize a Tree of Decisions' },
   ];
 };
 
