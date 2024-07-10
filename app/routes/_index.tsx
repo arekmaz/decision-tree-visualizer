@@ -93,18 +93,25 @@ export default function Index() {
       {choiceLists.map((choiceList, choiceListIndex) => {
         return (
           <div key={choiceListIndex} className="flex-1 flex">
-            {choiceList.map((choice, choiceIndex) => (
-              <button
-                key={choiceIndex}
-                className="flex-1 shrink-0 flex items-center justify-center hover:scale-[200%] bg-white rounded-md cursor-pointer"
-                style={{
-                  fontSize: 2.4 + choiceLists.length / choiceListIndex + 'px',
-                }}
-                onClick={() => globalThis.navigator.clipboard.writeText(choice)}
-              >
-                {choice}
-              </button>
-            ))}
+            <div className="px-2 flex items-center">{choiceList.length}</div>
+            <div className="flex-1 overflow-x-auto overflow-y-visible flex py-2 relative">
+              {choiceList.map((choice, choiceIndex) => (
+                <div
+                  key={choiceIndex}
+                  className="flex-1 shrink-0 flex items-center justify-center hover:scale-105 z-20 hover:relative bg-white rounded-md cursor-pointer"
+                  title="click to copy to clipboard"
+                  style={{
+                    fontSize:
+                      10 + choiceLists.length / choiceListIndex ** 1.6 + 'px',
+                  }}
+                  onClick={() =>
+                    globalThis.navigator.clipboard.writeText(choice)
+                  }
+                >
+                  {choice}
+                </div>
+              ))}
+            </div>
           </div>
         );
       })}
